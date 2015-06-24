@@ -1,0 +1,55 @@
+Se pueden realizar operaciones simples solo con poner la cantidad * / - + la segunda cantidad
+
+Se puede multiplicar un string por x cantidad para repetirlo
+
+Los strings se representan entre comillas dobles ( " " )
+
+Los arrays se representan con corchetes " [ ] " y los elementos se separan por comas " [ 10, 20, 50 ] "
+
+Para asignar una variable se pone el nombre de la variable mas a lo que es igual, ejemplo: ticket = [12, 47, 35]
+
+Para revisar lo que contiene una variable, simplemente se escribe su nombre
+
+El ! sirve para aplicar el cambio del metodo aplicado a una variable permanentemente, sin el ! solo sucede para imprimirlo una ves,
+pero no modifica el valor de la variable.
+
+El ? sirve para regresar un valor true o false si se cumplen las condiciones, por ejemplo poem.include? "my hand"
+sirve para verificar que en el string poem existe "my hand"
+
+Para asignar un valor a un string en una parte especifica se ocupa variable[ 'string' ] = valorDeseado
+
+Metodos:
+
+"string".reverse
+	Sirve para cambiar el órden de un string al reves.
+	No existe un método para numeros ( es decir 40.reverse )
+
+"string".length
+	Sirve para contar el número de caracteres dentro de un string.
+
+"string" *
+	Sirve para multiplicar un string (hasta ahora)
+
+"string".to_s
+	Convierte valores a strings
+
+valor.to_i
+	Convierte valores a integers
+
+valor.to_a
+	Convierte valores a arrays
+
+[valor1, valor2, valor3].max
+	Sirve para ver que valor es el mayor dentro de un array
+
+variable.sort
+	Sirve para ordenar los valores de un array de menor a mayor
+
+print loQueSea
+	Sirve para imprimir en pantalla
+
+variable.lines
+	Convertir un string en una lista
+
+join
+	Junta todo el contenido de metodos en un simple string
