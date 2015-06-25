@@ -18,6 +18,17 @@ sirve para verificar que en el string poem existe "my hand"
 
 Para asignar un valor a un string en una parte especifica se ocupa variable[ 'string' ] = valorDeseado
 
+symbols
+	los hash se almacenan cono información relacionada con las variables almacenadas, ejemplos
+	:splendid
+	:quite_good
+	:mediocre
+	:quite_not_good
+	:abysmal
+	(se puede poner el valor que uno desee, solo es para comentar cada una de las variables)
+
+Para crear un Hash se pone el nombre de la variable y se iguala con llaves ejemplo: variable = {}
+
 Metodos:
 
 "string".reverse
@@ -25,7 +36,7 @@ Metodos:
 	No existe un método para numeros ( es decir 40.reverse )
 
 "string".length
-	Sirve para contar el número de caracteres dentro de un string.
+	Sirve para contar el número de caracteres dentro de un string, o el numero de elementos dentro de un array
 
 "string" *
 	Sirve para multiplicar un string (hasta ahora)
@@ -53,3 +64,23 @@ variable.lines
 
 join
 	Junta todo el contenido de metodos en un simple string
+
+variable.upcase
+	Todos los caracteres de la variable en mayusculas
+
+variable.downcase
+	Todos los caracteres de la variable en minúsculas
+
+variable.delete "parteDelStringAEliminar"
+	Elimina una parte del string entre las comillas
+
+variable.key
+	Revisar una lista de los elementos ya revisados que contengan un hash
+
+variable = Hash.new(0)
+	Es para asignar una variable de Hash'es empezada en 0
+
+arrayPrincipal.values.each { |rate| variableComentarios[rate] += 1 }
+	Te crea una lista de todos los comentarios asignados dentro del "arrayPrincipal" y la almacena en "variableComentarios"
+	Despues si se imprime "variableComentarios" te hace un conteo de los diferentes comentarios ejemplo: 
+	{ :adc=>2, :jungle=>2, :top=>1 }
