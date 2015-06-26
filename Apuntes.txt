@@ -18,6 +18,8 @@ sirve para verificar que en el string poem existe "my hand"
 
 Para asignar un valor a un string en una parte especifica se ocupa variable[ 'string' ] = valorDeseado
 
+Las sentencias abiertas con "do" siempre se cerraran con "end"
+
 symbols
 	los hash se almacenan cono información relacionada con las variables almacenadas, ejemplos
 	:splendid
@@ -84,3 +86,24 @@ arrayPrincipal.values.each { |rate| variableComentarios[rate] += 1 }
 	Te crea una lista de todos los comentarios asignados dentro del "arrayPrincipal" y la almacena en "variableComentarios"
 	Despues si se imprime "variableComentarios" te hace un conteo de los diferentes comentarios ejemplo: 
 	{ :adc=>2, :jungle=>2, :top=>1 }
+
+Dir
+	Conjunto de métodos para el manejo de directorios
+
+Dir.entries
+	Enlista todo lo que contenga el directorio indicado
+
+Dir["/*.txt"]
+	Buscar todos los archivos en el directorio actual que termine
+	en .txt
+print File.read("/archivo.txt")
+	Lee e imprime lo leido en pantalla lo que contenga "archivo.txt"
+
+
+FileUtils.cp('/archivoOrigen.txt', '/Ubicacion/archivoDestino(mismoNombre).txt')
+	Método que sirve para compiar un archivo de una ubicación a otra
+File.open("/Directorio/archivo.txt", "metodo(PorEjemplo"a")") do |f|
+	Abre el archivo de texto para editarlo
+
+File.mtime("/Home/comics.txt")
+	Ver a que hora se abrió por ultima ves el archivo indicado
