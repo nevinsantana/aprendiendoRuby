@@ -172,4 +172,101 @@ TableName.destroy_all
 
 
 
+Modelos
 
+
+clases
+
+	class Tweet < ActiveRecord::Base
+		validates_presence_of :status
+	end
+
+	Esto es para validar que no se tengan valores vacíos
+
+Para generar un mensaje de error
+t = Tweet.new
+
+t.errors.messages
+{ status:["can't be blank"] }
+
+t.errors[:status][0]
+Regresara "can't be blank"
+
+Existen varios tipos de validaciones, así como la ya explicada
+
+validate_precence_of :status	Verifica que contenga string
+validates_numericality_of _fingers Verifica que contenga números
+validates_uniqueness_of :toothmarks verificar que es un valor único
+validates_confirmation_of :password verifica que dos campos sean iguales
+validates_acceptance_of :zombification Verifica que se haya confirmado alguna petición, como un checkbox
+validates_length_of :password, minimum: 3 Verifica que la longitud del array sea de la señalada
+validates_format_of :email, with: /regex/i  Formato del texto introducido
+validates_inclusion_of :age, in: 21..99  Valida si el valor introducido esta entre el rango establecido
+validates_exclusion_of :Age, in: 0...21, message: "Sorry you must be over 21"  Verifica que el valor introducido no estre en el rango establecido
+
+
+Otras formas de introducir los validates:
+
+validates : status, presence: true
+validates :status, length: { minimum: 3 }
+
+ó (mejor)
+
+validates :status, presence: true, length: { minimum: 3 }
+
+otras opciones dentro de un validate:
+
+presence: true
+uniqueness: true
+numericality: true
+length: { minimum: 0, maximum: 2000 }
+format: {  with: /.*/ }
+acceptance: true
+confirmation: true
+
+Relaciones entre diferentes tablas
+
+crear relaciones entre tablas
+
+class Zombie < ActiveRecord::Base
+	has_many :tweets(plural)
+end				(Un zombie tiene varios "tweets")
+
+class Tweet < ActiveRecord::Base
+	belongs_to :zombie(singular)
+end				(Cada twet pertenece un zombie)
+
+
+
+ash = Zombie.find(1)
+
+t = Tweet.create(status: "Your eyelids taste like bacon.", zombie: ash)
+
+ash.tweets.count
+
+ash.tweets
+
+
+Como el usuario ve las aplicaciones
+
+Se puede introducir código ruby en archivos html
+
+se introduce entre <%   %>
+por ejemplo
+<% tweet = Tweet.find(1) %>
+<h1><%=  tweet.status  %></h1>
+<p>Posted by <%= tweet.zombie.name %></p>
+
+<% yield %>
+	Es para referirse a otro código ruby
+
+para crear un link en ruby:
+	<%= link_to tweet.zombie.name, zombie_path(tweet.zombie) %>
+
+sintáxis alternativa
+	<%= link_to tweet.zombie.name, tweet.zombie %>
+
+Link Recipe
+	<%= link_to text_to_show, model_instance %>
+
+<%= significa imprimir resultado de Ruby en html
