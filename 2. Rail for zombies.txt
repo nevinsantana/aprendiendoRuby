@@ -1,0 +1,175 @@
+Realizar la base de datos de twitter
+
+	tweets
+		4 Filas
+		3Columnas
+
+	Columna
+	1 id
+	2 status
+	3 zombie
+
+Hash
+	Multiples llaves y valores encerrados entre corchetes llaves { }
+	Keys sería el nombre que contendrá el valor, las cuales tambien se pueden llamar simbols
+
+Para leer el valor de un simbol:
+	b[:ejemplo]
+
+	b[:status]
+
+Leer y juntar dos simbolos como si fuera un string
+	b[:zombie] + " dijo " + b:[:status]
+
+	"Jin (es decir b[:zombie]) dijo acabo de 
+	comer algunos deliciosos cerebros (es decir b[:status])"
+
+t = Tweet.find(3)
+t es la variable en la que se va a almacenar el tweet No 3
+Tweet     Nombre de la bd
+
+tambien se podría poner puts t[:id]
+
+ó
+
+puts t.id
+
+Arroja el mismo resultado
+
+
+Leer
+
+
+Tweet.find(3)
+.find sirve para leer un unico "tweet" o elemento dentro de la tabla
+
+Para leer varios elementos
+
+Tweet.find(3, 4, 5)
+
+Tweet.first   Regresa el primer Tweet
+
+Tweet.last Regresa el último Tweet
+
+Tweet.all  Regresa todos los elementos tweet
+
+Tweet.count  Regresa el número total de tweets
+
+Tweet.order(:zombie)  Regresa todos los tweets ordenados por :zombie
+
+Tweet.limit(10)   Regresa los primeros 10 tweets
+
+Tweet.where(zombie: "ash")  Regresa todos los tweets de zombie llamados ash
+
+
+Combinando métodos ejemplos:
+
+
+Tweet.where(zombie: "ash").order(:status).limit(10)
+
+Regresara sólo los tweets que sean de "ash", ordenados por :status, mostrandos solo los primeros 10
+
+Tweet.where(zombie: "ash").first
+
+Regresa el primer tweet de "ash"
+
+
+
+
+Para crear un nuevo elemento
+
+t = Tweet.new
+t.status = "I <3 brains."
+t.save
+
+ó
+
+t = Tweet.new(
+	status: "i <3 brains",
+	zombie: "Jim")
+t.save
+
+ó
+
+Tweet.create(status: "I <3 brains", zombie: "Jim")
+
+Al crear un nuevo elemento, el id se crea automaticamente
+	
+	Crear nuevas tabla
+	t = NombreTabla.new
+	t.key = value
+	t.save
+	
+	ó
+
+	t = TableName.new(hash)
+	t.save
+
+	ó
+
+	TableName.create(hash)
+
+
+
+
+Actualizar valor
+
+t = Tweet.find(3)
+t.zombie = "EyeballChomper"
+t.save
+
+Actualizar multiples valores
+
+t = Tweet.find(2)
+t.attributes = {
+	status: "Can I munch your eyeballs?",
+	zombie: "EyeballCHomber" }
+t.save
+
+
+t = Tweet.find(2)
+t.update(
+	status: "Can I munch your eyeballs?",
+	zombie: "EyeballChomper" )
+
+
+Para tablas
+
+t = TableName.find(id)
+t.key = value
+t.save
+
+
+t = TableName.find(id)
+t.attributes = hash
+t.save
+
+
+t = Tweet.find(2)
+t = TableName.update(hash)
+
+
+
+Borrar
+
+t = Tweet.find(3)
+t.destroy
+
+Tweet.find(2).destroy
+
+Tweet.destroy_all
+
+
+
+Para tablas
+
+t = Table.find(id)
+t.destroy
+
+TableName.find(id).destroy
+
+TableName.destroy_all
+
+
+
+

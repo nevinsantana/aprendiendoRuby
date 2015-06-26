@@ -31,6 +31,8 @@ symbols
 
 Para crear un Hash se pone el nombre de la variable y se iguala con llaves ejemplo: variable = {}
 
+Se pueden crear bloques de cambios para un archivo ocupando do y end para indentificar cuando empeizan y cuando acaban
+
 Metodos:
 
 "string".reverse
@@ -96,14 +98,36 @@ Dir.entries
 Dir["/*.txt"]
 	Buscar todos los archivos en el directorio actual que termine
 	en .txt
+
 print File.read("/archivo.txt")
 	Lee e imprime lo leido en pantalla lo que contenga "archivo.txt"
 
 
 FileUtils.cp('/archivoOrigen.txt', '/Ubicacion/archivoDestino(mismoNombre).txt')
 	Método que sirve para compiar un archivo de una ubicación a otra
+
 File.open("/Directorio/archivo.txt", "metodo(PorEjemplo"a")") do |f|
 	Abre el archivo de texto para editarlo
 
 File.mtime("/Home/comics.txt")
 	Ver a que hora se abrió por ultima ves el archivo indicado
+
+File.foreach
+	Abre un archivo y verifica cada linea del block, para luego hacer las acciones desde do a end con cada linea del archivo
+
+split
+	Parte strings en arreglos (arrays), quitando el espacio entre los strings
+
+strip
+	Remueve espacios en blanco extra
+
+Creación de métodos propios
+
+def nombreMetodo
+	Se utiliza para crear el método
+
+
+
+
+
+
